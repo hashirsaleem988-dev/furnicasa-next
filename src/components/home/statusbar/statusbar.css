@@ -1,0 +1,138 @@
+.status-bar {
+  position: relative;
+  z-index: 5;
+  width: min(94%, 1440px);
+  margin: -30px auto 36px;
+  padding: 8px 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid #eee4d9;
+  border-radius: 18px;
+  background: var(--cream);
+  box-shadow: 0 8px 24px rgb(46 46 46 / 10%);
+  opacity: 0;
+  transform: translate3d(0, 54px, 0);
+}
+
+.status-bar.is-visible {
+  animation: status-bar-slide-up 1100ms
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes status-bar-slide-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 54px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.status-item {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 4px 10px;
+}
+
+.status-item:not(:last-child) {
+  border-right: 1px solid #d8cabc;
+}
+
+.status-icon-wrap {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(212 185 150 / 25%);
+  color: var(--brown);
+}
+
+.status-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.status-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: "Poppins", sans-serif;
+}
+
+.status-copy strong {
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-copy > span {
+  color: #75685e;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+@media (max-width: 580px) {
+  .status-bar {
+    width: calc(100% - 28px);
+    margin: -22px auto 28px;
+    padding: 6px 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .status-item {
+    min-height: 52px;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 4px 8px;
+  }
+
+  .status-item:not(:last-child) {
+    border-right: 0;
+  }
+
+  .status-item:nth-child(odd) {
+    border-right: 1px solid #d8cabc;
+  }
+
+  .status-item:nth-child(-n + 2) {
+    border-bottom: 1px solid #d8cabc;
+  }
+
+  .status-icon-wrap {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .status-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .status-copy strong {
+    font-size: 15px;
+  }
+
+  .status-copy > span {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-bar,
+  .status-bar.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

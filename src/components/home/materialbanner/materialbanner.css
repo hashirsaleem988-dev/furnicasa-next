@@ -1,0 +1,315 @@
+.materials-section {
+  width: 100%;
+  overflow: hidden;
+  background: var(--cream);
+  font-family: "Poppins", sans-serif;
+}
+
+.materials-banner {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: clamp(320px, 32vw, 430px);
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: clamp(32px, 5vw, 64px) clamp(24px, 7vw, 96px);
+  background: var(--brown);
+}
+
+.materials-banner-image {
+  position: absolute;
+  inset: -4px;
+  z-index: -2;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  object-fit: cover;
+  object-position: center;
+  filter: blur(1.5px);
+  transform: scale(1.02);
+}
+
+.materials-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(28 19 14 / 58%) 0%,
+    rgb(28 19 14 / 34%) 58%,
+    rgb(28 19 14 / 12%) 100%
+  );
+}
+
+.materials-banner-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+  text-align: left;
+}
+
+.materials-banner-content h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.materials-title-accent {
+  color: var(--sand);
+}
+
+.materials-banner-content > p {
+  max-width: 480px;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Scroll reveal animations */
+.scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-up {
+  transform: translate3d(0, 38px, 0);
+}
+
+.scroll-reveal-left {
+  transform: translate3d(-36px, 0, 0);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.materials-benefits {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 1280px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: -36px auto 16px;
+}
+
+.materials-benefit-card {
+  min-height: 108px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #eee4d9;
+  border-radius: 16px;
+  background: var(--cream);
+  box-shadow: 0 6px 18px rgb(46 46 46 / 9%);
+  text-align: left;
+}
+
+.materials-benefit-card.scroll-reveal,
+.material-card.scroll-reveal {
+  transition:
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    box-shadow 200ms ease;
+}
+
+.materials-benefit-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  fill: none;
+  stroke: var(--brown);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.materials-benefit-card h3 {
+  margin: 0 0 5px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.materials-benefit-card p {
+  margin: 0;
+  color: #75685e;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.materials-grid {
+  width: min(90%, 1280px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 auto 56px;
+}
+
+.material-card {
+  overflow: hidden;
+  border: 1px solid #eee4d9;
+  border-radius: 14px;
+  background: #fffdfa;
+  box-shadow: 0 4px 12px rgb(46 46 46 / 6%);
+  text-align: left;
+}
+
+.material-card-image {
+  overflow: hidden;
+  aspect-ratio: 1.5 / 1;
+  background: #e9dfd4;
+}
+
+.material-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 280ms ease;
+}
+
+.material-card:hover .material-card-image img {
+  transform: scale(1.04);
+}
+
+.material-card-copy {
+  padding: 11px 12px 14px;
+}
+
+.material-card-copy h3 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.material-card-copy p {
+  margin: 0;
+  color: #75685e;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .materials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .materials-banner {
+    min-height: 300px;
+    padding: 28px 22px;
+  }
+
+  .materials-banner-content h2 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .materials-banner-content > p {
+    max-width: 330px;
+    font-size: 12px;
+  }
+
+  .materials-benefits {
+    width: calc(100% - 28px);
+    gap: 8px;
+    margin-top: -30px;
+  }
+
+  .materials-benefit-card {
+    min-height: 150px;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 10px;
+    border-radius: 13px;
+  }
+
+  .materials-benefit-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .materials-benefit-card h3 {
+    font-size: 11px;
+  }
+
+  .materials-benefit-card p {
+    font-size: 10px;
+  }
+
+  .materials-grid {
+    width: calc(100% - 28px);
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .material-card {
+    border-radius: 12px;
+  }
+
+  .material-card-image {
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .material-card-copy {
+    padding: 8px 9px 11px;
+  }
+
+  .material-card-copy h3 {
+    font-size: 11px;
+  }
+
+  .material-card-copy p {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .material-card-image img {
+    transition: none;
+  }
+}
+
+.materials-data-status {
+  grid-column: 1 / -1;
+  margin: 24px auto;
+  padding: 22px 18px;
+  border: 1px dashed #d8cabc;
+  border-radius: 14px;
+  background: #fffdfa;
+  color: #75685e;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.material-image-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  color: #75685e;
+  font-size: 11px;
+  text-align: center;
+}

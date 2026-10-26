@@ -1,0 +1,23 @@
+@import "../src/index.css";
+@import "../src/components/home/navbar/navbar.css";
+@import "../src/components/home/hero/hero.css";
+@import "../src/components/home/statusbar/statusbar.css";
+@import "../src/components/home/category/category.css";
+@import "../src/components/home/ourstore/ourstore.css";
+@import "../src/components/home/materialbanner/materialbanner.css";
+@import "../src/components/home/about/about.css";
+@import "../src/components/home/contactbanner/contactbanner.css";
+@import "../src/components/home/inquiry/inquirypage.css";
+@import "../src/components/home/footer/footer.css";
+
+.route-page {
+  min-height: 100vh;
+  padding-top: 62px;
+  background: #f7f5f2;
+}
+
+@media (max-width: 580px) {
+  .route-page {
+    padding-top: 56px;
+  }
+}
